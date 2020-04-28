@@ -23,3 +23,6 @@ jnc/lib
 
 **/.idea
 **/*.iml
+
+jnc/target/
+/jnc/nbproject/

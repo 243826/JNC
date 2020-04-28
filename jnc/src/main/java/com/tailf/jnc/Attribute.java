@@ -1,5 +1,6 @@
 package com.tailf.jnc;
 
+import java.io.PrintStream;
 import java.io.Serializable;
 
 /**
@@ -117,7 +118,8 @@ public class Attribute implements Serializable {
      * the toXMLString(), but without the pretty printing. This version of
      * encode allows foreign attributes.
      */
-    void encode(Transport out) {
+    void encode(PrintStream out)
+    {
         encode(out, null);
     }
 
@@ -125,7 +127,8 @@ public class Attribute implements Serializable {
      * Encodes the attribute, writing it to the provided out stream. Similar to
      * the toXMLString(), but without the pretty printing.
      */
-    void encode(Transport out, Element contextnode) {
+    void encode(PrintStream out, Element contextnode)
+    {
         // NOTE: Namespace is allowed to be "" for attributes
         if (ns != null && ns.length() > 0) {
             String prefix;

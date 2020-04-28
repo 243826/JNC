@@ -1,5 +1,6 @@
 package com.tailf.jnc;
 
+import java.io.PrintStream;
 import java.io.Serializable;
 
 /**
@@ -65,7 +66,8 @@ public class Prefix extends Attribute implements Serializable {
      * toXMLString(), but without the pretty printing.
      */
     @Override
-    void encode(Transport out) {
+    void encode(PrintStream out)
+    {
         out.print(qName);
         out.print("=\"");
         out.print(value);

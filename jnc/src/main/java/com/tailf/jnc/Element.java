@@ -4,6 +4,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1741,7 +1742,8 @@ public class Element implements Serializable {
      * @param out Stream to send the encoded version of this element to.
      * @throws JNCException If a YangElement encode implementation fails
      */
-    protected void encode(Transport out) throws JNCException {
+    public void encode(PrintStream out) throws JNCException
+    {
         encode(out, true, null);
     }
 
@@ -1755,7 +1757,8 @@ public class Element implements Serializable {
      * @param c Capabilities, used by YangElement instances.
      * @throws JNCException If a YangElement encode implementation fails.
      */
-    protected void encode(Transport out, Capabilities c) throws JNCException {
+    protected void encode(PrintStream out, Capabilities c) throws JNCException
+    {
         encode(out, true, c);
     }
 
@@ -1772,7 +1775,7 @@ public class Element implements Serializable {
      * @param newline_at_end If 'true' a newline is printed at the end.
      * @throws JNCException If a YangElement encode implementation fails.
      */
-    protected void encode(Transport out, boolean newline_at_end)
+    protected void encode(PrintStream out, boolean newline_at_end)
             throws JNCException {
         encode(out, newline_at_end, null);
     }
@@ -1789,8 +1792,9 @@ public class Element implements Serializable {
      * @param c Capabilities, used by YangElement instances.
      * @throws JNCException If a YangElement encode implementation fails.
      */
-    protected void encode(Transport out, boolean newline_at_end,
-            Capabilities capas) throws JNCException {
+    protected void encode(PrintStream out, boolean newline_at_end,
+                          Capabilities capas) throws JNCException
+    {
         final String qName = qualifiedName();
         out.print("<" + qName);
         // add xmlns attributes (prefixes)

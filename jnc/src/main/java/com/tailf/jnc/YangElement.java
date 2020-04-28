@@ -1,5 +1,6 @@
 package com.tailf.jnc;
 
+import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -1012,8 +1013,8 @@ public abstract class YangElement extends Element {
     private SchemaNode n = null;
 
     @Override
-    protected void encode(Transport out, boolean newline_at_end,
-            Capabilities capas) throws JNCException {
+    protected void encode(PrintStream out, boolean newline_at_end,
+                          Capabilities capas) throws JNCException {
         if (RevisionInfo.olderRevisionSupportEnabled && capas != null) {
             if (tp == null) {
                 tp = tagpath();

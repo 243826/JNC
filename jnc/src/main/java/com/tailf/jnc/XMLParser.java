@@ -129,7 +129,8 @@ public class XMLParser {
      * 
      * @param is Inputsource (byte stream) where the XML text is read from
      */
-    public Element parse(InputSource is) throws JNCException {
+    public synchronized Element parse(InputSource is) throws JNCException
+    {
         try {
             final ConfHandler handler = new ConfHandler();
             parser.setContentHandler(handler);
